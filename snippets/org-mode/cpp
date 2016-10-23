@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: insert cpp source code
+# key: cpps
+# --
+#+BEGIN_SRC cpp
+$0
+#+END_SRC

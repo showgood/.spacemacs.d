@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: coding problem properties
+# key: prop
+# --
+:properties:
+:level: :${1:easy}:
+:company: 
+:status: :not_started:
+:tag:
+:end:

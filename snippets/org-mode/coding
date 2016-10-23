@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: insert coding section
+# key: coding
+# --
+** coding
+#+BEGIN_SRC cpp
+$0
+#+END_SRC

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: vector<vector<T>>
+# key: vv
+# --
+vector<vector<${1:string}>> ${2:result};
+$3

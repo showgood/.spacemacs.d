@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: snippet file template
+# key: snip
+# --
+
+# -*- mode: snippet -*-
+# name: constructor
+# key: ctor
+# --
+
+$0

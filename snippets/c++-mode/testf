@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: TEST_F(testclass, testmethod)
+# key: testf
+# --
+TEST_F(${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`), test${2:Method})
+{
+${3:}
+}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: put visual selection in a block
+# key: bv
+# --
+{
+  `yas-selected-text`$0
+}

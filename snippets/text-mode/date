@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: put today date
+# key: date
+# --
+
+`(ddate)` $0

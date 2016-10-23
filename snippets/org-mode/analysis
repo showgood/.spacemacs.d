@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: insert analysis section
+# key: anal 
+# --
+** analysis
+$0

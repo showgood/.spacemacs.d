@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: skeleton for gtest
+# key: gtest
+# --
+#include <$1.hpp>
+#include "gtest/gtest.h"
+
+using namespace ::testing;
+
+class ${1:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`) : public testing::Test
+{
+public:
+    void SetUp();
+    void TearDown();
+};
+
+void $1::SetUp()
+{
+}
+
+void $1::TearDown()
+{
+}
+
+TEST_F($1, test${2:Method})
+{
+$0
+}
