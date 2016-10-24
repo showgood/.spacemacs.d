@@ -9,7 +9,6 @@
 
 (load (concat dotspacemacs-directory "myOrg.el"))
 (load (concat dotspacemacs-directory "keys"))
-(load (concat dotspacemacs-directory "myCal"))
 (load (concat dotspacemacs-directory "dired+.el"))
 (load (concat dotspacemacs-directory "cpp.el"))
 
@@ -21,7 +20,7 @@
 ;; (load (concat dotspacemacs-directory "typeless.el"))
 
 (setq diredp-hide-details-initially-flag nil)
-
+(load (concat dotspacemacs-directory "myCal"))
 ;; (load (concat dotspacemacs-directory "keyfreq.el"))
 ;; (require 'keyfreq)
 ;; (keyfreq-mode 1)

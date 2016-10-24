@@ -87,4 +87,5 @@ shows that it does not recognize Run Yue at all."
         (holiday-fixed 12 25 "christmas")))
 
 (setq calendar-holidays
-      (append general-holidays local-holidays other-holidays))
+      (append holiday-general-holidays holiday-local-holidays holiday-other-holidays))
+;; (append general-holidays local-holidays other-holidays))
