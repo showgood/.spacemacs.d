@@ -6,3 +6,6 @@
 
 (load (concat dotspacemacs-directory "tramp.mac.el"))
 (load (concat dotspacemacs-directory "sicp.mac.el"))
+
+(setq scheme-program-name "/Applications/mit-scheme/Contents/Resources/mit-scheme")
+(require 'xscheme)

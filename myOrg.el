@@ -99,3 +99,4 @@
 (setcar org-emphasis-regexp-components " \t('\" {")
 ;; This one is for the ending char.
 (setcar (nthcdr 1 org-emphasis-regexp-components) "- \t.,: !?;'\")}\\")
+(setq org-export-with-properties t)
