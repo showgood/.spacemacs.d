@@ -28,3 +28,5 @@
 
 ;; (add-to-list 'load-path "~/dotspacemacs/bookmark-plus/")
 ;; (require 'bookmark+)
+; do not move to trash
+(setq delete-by-moving-to-trash nil)
