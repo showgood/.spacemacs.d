@@ -82,3 +82,5 @@
 (global-set-key (kbd "\C-xp") 'spacemacs/copy-clipboard-to-whole-buffer)
 (global-set-key (kbd "\C-xg") 'avy-goto-char-2)
 (global-set-key (kbd "\C-xc") 'cp-filename-of-current-buffer)
+
+(global-set-key (kbd "C-x k") 'kill-this-buffer)

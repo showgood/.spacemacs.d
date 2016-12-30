@@ -30,3 +30,20 @@
 ;; (require 'bookmark+)
 ; do not move to trash
 (setq delete-by-moving-to-trash nil)
+
+;; Make script files executable automatically
+;; https://www.masteringemacs.org/article/script-files-executable-automatically
+(add-hook 'after-save-hook   'executable-make-buffer-file-executable-if-script-p)
+
+;; for proced
+(setq-default proced-auto-update-flag t)
+(setq-default proced-auto-update-interval 5)
+;; (add-hook 'proced-mode-hook 'eos/turn-on-hl-line)
+
+;; It’s much easier to move around lines based on how they are
+;; displayed, rather than the actual line. This helps a ton with
+;; long log file lines that may be wrapped:
+(setq line-move-visual t)
+
+;; Save whatever’s in the current (system) clipboard before replacing it with the Emacs’ text.
+(setq save-interprogram-paste-before-kill t)
