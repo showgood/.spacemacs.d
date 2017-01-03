@@ -47,3 +47,7 @@
 
 ;; Save whatever’s in the current (system) clipboard before replacing it with the Emacs’ text.
 (setq save-interprogram-paste-before-kill t)
+
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+(setq golden-ratio-auto-scale t)
