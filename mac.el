@@ -55,3 +55,11 @@
       )
         ;;
         ))
+(prodigy-define-service
+  :name "Python app"
+  :command "python"
+  :args '("-m" "SimpleHTTPServer" "6001")
+  :cwd "~/"
+  :tags '(work)
+  :stop-signal 'sigkill
+  :kill-process-buffer-on-stop t)
