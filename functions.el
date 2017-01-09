@@ -175,3 +175,17 @@ Version 2015-06-12"
   (split-window-right-and-focus)
   (ff-find-other-file)
 )
+
+(defun xml-reformat()
+  "reformat the xml file using xmllint"
+  (interactive)
+
+  (shell-command
+   (format "xmllint --format %s" 
+           (shell-quote-argument (buffer-file-name)))
+
+   ;; name of output buffer
+   (current-buffer)
+   ;; name of the error buffer
+   "*XMl reformat Error Buffer*"
+   ))
