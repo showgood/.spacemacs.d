@@ -28,20 +28,6 @@
 ;;         ))
 ;;     (evil-ex (concat "%s/" (thing-at-point 'word) "/"))))
 
-;; copy whole line without selection
-;; http://emacs-fu.blogspot.com.au/2009/11/copying-lines-without-selecting-them.html
-;; (defadvice kill-ring-save (before slick-copy activate compile) "When called
-;;   interactively with no active region, copy a single line instead."
-;;            (interactive (if mark-active (list (region-beginning) (region-end)) (message
-;;                                                                                 "Copied line") (list (line-beginning-position) (line-beginning-position
-;;                                                                                                                                 2)))))
-;; (defadvice kill-region (before slick-cut activate compile)
-;;   "When called interactively with no active region, kill a single line instead."
-;;   (interactive
-;;    (if mark-active (list (region-beginning) (region-end))
-;;      (list (line-beginning-position)
-;;            (line-beginning-position 2)))))
-
 (defun Open ()
   "Show current file in desktop (OS's file manager).
 URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
@@ -182,3 +168,10 @@ Version 2015-06-12"
   ;;  (concat "#+start\n"
   ;;          (substring-no-properties (current-kill 0)) "\n #+end\n"))
   ;; )
+
+(defun A()
+  "open the corresponding header/cpp file, like A plugin in vim"
+  (interactive)
+  (split-window-right-and-focus)
+  (ff-find-other-file)
+)
