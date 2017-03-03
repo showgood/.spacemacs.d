@@ -118,19 +118,6 @@ Version 2015-06-12"
 ;;   (delete-indentation)
 ;; )
 
-;; (defun svnstatus()
-;;   "Show current file in desktop (OS's file manager).
-;; URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'
-;; Version 2015-06-12"
-;;   (interactive)
-;;   (let ((cmd (concat "TortoiseProc.exe /command:repostatus /path:"  (replace-regexp-in-string "/" "\\" default-directory t t)))))
-;;   ;; (let ((cmd (concat "TortoiseProc.exe" "/command:repostatus /path:"  "c:/workarea/AHSW-162"))))
-;;   (w32-shell-execute "open" cmd) 
-
-;;   ;; (w32-shell-execute "open" "TortoiseProc.exe /command:repostatus /path:"  (replace-regexp-in-string "/" "\\" default-directory t t))
-;;   ;; (w32-shell-execute "open" "TortoiseProc.exe" "/command:repostatus /path: " "c:/workarea/AHSW-162")
-;; )
-
 ;; from AbcDef ==> Abc_Def
 (defun split-name (s)
   (split-string
