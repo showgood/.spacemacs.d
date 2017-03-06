@@ -176,3 +176,11 @@ Version 2015-06-12"
    ;; name of the error buffer
    "*XMl reformat Error Buffer*"
    ))
+
+(defun dup()
+   "duplicate current line without chaning kill ring"
+   (interactive)
+   (evil-yank-line)
+   (evil-paste-after)
+   (setq kill-ring (cdr kill-ring))
+)

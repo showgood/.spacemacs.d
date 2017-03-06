@@ -17,3 +17,9 @@
   :tags '(work)
   :stop-signal 'sigkill
   :kill-process-buffer-on-stop t)
+
+(load (concat dotspacemacs-directory "evil-tweak.el"))
+(load (concat dotspacemacs-directory "paperless.el"))
+
+(setq paperless-capture-directory "/Users/showgood/Documents/scan")
+(setq paperless-root-directory "/Users/showgood/Documents/docs")

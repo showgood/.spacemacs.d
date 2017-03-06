@@ -72,7 +72,7 @@
 (global-set-key (kbd "\C-co") 'evil-replace-word-selection)
 (global-set-key (kbd "\C-cl") 'org-store-link)
 (global-set-key (kbd "\C-cr") 'org-refile)
-(global-set-key (kbd "\C-cj") 'org-journal-new-entry)
+;; (global-set-key (kbd "\C-cj") 'org-journal-new-entry)
 
 ;; jump to the definition
 ;; (global-set-key (kbd "<C-return>") 'helm-gtags-find-tag)
