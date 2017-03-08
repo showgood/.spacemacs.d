@@ -84,3 +84,6 @@
 (global-set-key (kbd "\C-xc") 'cp-filename-of-current-buffer)
 
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
+
+;; quickly select the content for a xml element for replace
+(global-set-key (kbd "C-x t") 'web-mode-element-content-select)
