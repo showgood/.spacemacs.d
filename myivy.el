@@ -3,6 +3,8 @@
 (global-set-key (kbd "\C-cj") 'counsel-git-grep)
 (global-set-key (kbd "\C-s") 'counsel-grep-or-swiper)
 
+(setq ivy-count-format "(%d/%d) ")
+
 ;; {{ @see http://oremacs.com/2015/04/19/git-grep-ivy/
 ;; http://blog.binchen.org/posts/hello-ivy-mode-bye-helm.html
 (defun counsel-git-grep-or-find-api (fn git-cmd hint open-another-window)
