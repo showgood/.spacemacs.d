@@ -163,12 +163,18 @@ Version 2015-06-12"
   (ff-find-other-file)
 )
 
+(defun a()
+  "open the corresponding header/cpp file in current buffer"
+  (interactive)
+  (ff-find-other-file)
+)
+
 (defun xml-reformat()
   "reformat the xml file using xmllint"
   (interactive)
 
   (shell-command
-   (format "xmllint --format %s" 
+   (format "xmllint --format %s"
            (shell-quote-argument (buffer-file-name)))
 
    ;; name of output buffer
@@ -184,3 +190,44 @@ Version 2015-06-12"
    (evil-paste-after)
    (setq kill-ring (cdr kill-ring))
 )
+
+(defun read-lines (filePath)
+  "Return a list of lines of a file at filePath."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (split-string (buffer-string) "\n" t)))
+
+(defun extract-bas-codegen-command (fileContent)
+  (require 'cl)
+    (car (cl-remove-if-not 'contain-bas-codegen? fileContent))
+)
+
+(defun trim-left-bas-code-gen (line)
+  (subseq line (contain-bas-codegen? line))
+)
+
+(defun trim-right-bas-code-gen (line)
+  (subseq line 0 (+ 4 (search ".xsd" line)))
+)
+
+(defun contain-bas-codegen? (line)
+  (search "bas_codegen.pl" line)
+)
+
+(defun bas-code-gen ()
+  "run bas_codegen on current buffer by extracting the command from file content"
+  (interactive)
+
+  (shell-command
+   (trim-right-bas-code-gen
+    (trim-left-bas-code-gen
+     (extract-bas-codegen-command
+      (read-lines
+                  (shell-quote-argument (buffer-file-name))
+      ))))
+
+   ;; name of output buffer
+   "*Bas code gen output Buffer*"
+   ;; name of the error buffer
+   "*Bas code gen Error Buffer*"
+))

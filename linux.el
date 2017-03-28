@@ -3,6 +3,11 @@
 (load (concat dotspacemacs-directory "keys"))
 (load (concat dotspacemacs-directory "bb.el"))
 (load (concat dotspacemacs-directory "dired+.el"))
+(load (concat dotspacemacs-directory "typeless.el"))
+(load (concat dotspacemacs-directory "myivy.el"))
+(load (concat dotspacemacs-directory "functions.el"))
+(load (concat dotspacemacs-directory "comdb2-sql3.el"))
+(load (concat dotspacemacs-directory "myediff.el"))
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_linux"))
 (add-hook 'shell-mode-hook (lambda () (company-mode -1)) 'append)
 
@@ -20,13 +25,12 @@
 (require 'ansi-color)
 (setq ansi-color-for-comint-mode t)
 (setq term-buffer-maximum-size 0)
-(load (concat dotspacemacs-directory "json-reformat.el"))
 
-(defun eshell/clear ()
-  "Clear the eshell buffer."
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (eshell-send-input)))
+;; (defun eshell/clear ()
+;;   "Clear the eshell buffer."
+;;   (let ((inhibit-read-only t))
+;;     (erase-buffer)
+;;     (eshell-send-input)))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -44,38 +48,6 @@
 
 (setq org-plantuml-jar-path "~/soft/plantuml.8033.jar")
 (setq tab-width 4)
-
-;;soure:https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-clipboard.el
-;; only copy file name (not including path)
-(defun cp-filename-of-current-buffer ()
-  "Copy file name (NOT full path) into the yank ring and OS clipboard"
-  (interactive)
-  (let (filename)
-    (when buffer-file-name
-      (setq filename (file-name-nondirectory buffer-file-name))
-      (kill-new filename)
-      (message "filename %s => clipboard & yank ring" filename))))
-
-(defun xml-reformat()
-  "reformat the xml file using xmllint"
-  (interactive)
-
-  (shell-command
-   (format "xmllint --format %s" 
-           (shell-quote-argument (buffer-file-name)))
-
-   ;; name of output buffer
-   (current-buffer)
-   ;; name of the error buffer
-   "*XMl reformat Error Buffer*"
-   ))
-
-(defun A()
-  "open the corresponding header/cpp file, like A plugin in vim"
-  (interactive)
-  (split-window-right-and-focus)
-  (ff-find-other-file)
-  )
 
 ;; https://github.com/fniessen/emacs-leuven/blob/master/emacs-leuven.el
 (defun leuven-vc-dir-hide-up-to-date-and-unregistered ()

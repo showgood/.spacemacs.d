@@ -55,6 +55,11 @@
 
 ;; use web-mode instead of nxml for xml
 (add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.xsd\\'" . web-mode))
+
+;; stop spacemacs keep asking for installing a layer
+;; when open a certain file type
+(setq dotspacemacs-enable-lazy-installation nil)
 
 (defun comint-clear-buffer ()
   (interactive)
