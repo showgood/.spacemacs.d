@@ -4,6 +4,13 @@
     (erase-buffer)
     (eshell-send-input)))
 
+(defun comint-clear-buffer ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
+(add-hook 'comint-mode-hook (lambda () (define-key comint-mode-map "\C-c\M-o" #'comint-clear-buffer)))
+
 (defun sum-cua-rectangle ()
   ;; Treat the content of current cua rectangle as numbers, and
   ;; calculate sum.
