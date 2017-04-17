@@ -28,7 +28,7 @@
 (load (concat dotspacemacs-directory "functions"))
 
 ;; disable company mode in shell
-(add-hook 'shell-mode-hook (lambda () (company-mode -1)) 'append)
+;; (add-hook 'shell-mode-hook (lambda () (company-mode -1)) 'append)
 
 ;; (load (concat dotspacemacs-directory "myOrg.el"))
 ;; (load (concat dotspacemacs-directory "visual-regexp/visual-regexp.el"))
@@ -59,9 +59,9 @@
 ;; Save whatever’s in the current (system) clipboard before replacing it with the Emacs’ text.
 (setq save-interprogram-paste-before-kill t)
 
-(require 'golden-ratio)
-(golden-ratio-mode 1)
-(setq golden-ratio-auto-scale t)
+;; (require 'golden-ratio)
+;; (golden-ratio-mode 1)
+;; (setq golden-ratio-auto-scale t)
 
 ;; use web-mode instead of nxml for xml
 (add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode))
