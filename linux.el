@@ -1,6 +1,7 @@
 (load (concat dotspacemacs-directory "common.el"))
 (load (concat dotspacemacs-directory "bb.el"))
-(load (concat dotspacemacs-directory "comdb2-sql3.el"))
+
+(require 'sql3-comdb2)
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_linux"))
 
 (setq x-select-enable-clipboard t)

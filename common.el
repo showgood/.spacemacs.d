@@ -8,7 +8,12 @@
 (global-linum-mode t)
 (global-company-mode t)
 
-(load (concat dotspacemacs-directory "runCurrentFile.el"))
+(add-to-list 'load-path (concat dotspacemacs-directory "external"))
+
+(require 'exec-path-from-shell)
+(exec-path-from-shell-initialize)
+
+(load (concat dotspacemacs-directory "external/" "runCurrentFile.el"))
 (load (concat dotspacemacs-directory "shell_abbrev"))
 (load (concat dotspacemacs-directory "alias"))
 (load (concat dotspacemacs-directory "projectile.el"))
@@ -16,13 +21,15 @@
 (load (concat dotspacemacs-directory "myivy.el"))
 (load (concat dotspacemacs-directory "myediff.el"))
 (load (concat dotspacemacs-directory "typeless.el"))
-(load (concat dotspacemacs-directory "projectile.el"))
 (load (concat dotspacemacs-directory "myCal"))
 (load (concat dotspacemacs-directory "myvc.el"))
 (load (concat dotspacemacs-directory "mycpp.el"))
 (load (concat dotspacemacs-directory "myabbrev.el"))
 (load (concat dotspacemacs-directory "keys"))
 (load (concat dotspacemacs-directory "company.el"))
+(load (concat dotspacemacs-directory "myFindFile.el"))
+(load (concat dotspacemacs-directory "myShell.el"))
+(load (concat dotspacemacs-directory "myEshell.el"))
 
 ;; put this at last
 (load (concat dotspacemacs-directory "functions"))
@@ -34,10 +41,10 @@
 ;; (load (concat dotspacemacs-directory "visual-regexp/visual-regexp.el"))
 ;; (load (concat dotspacemacs-directory "visual-regexp-steroids/visual-regexp-steroids.el"))
 
-(load (concat dotspacemacs-directory "keyfreq.el"))
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
+;; (load (concat dotspacemacs-directory "keyfreq.el"))
+;; (require 'keyfreq)
+;; (keyfreq-mode 1)
+;; (keyfreq-autosave-mode 1)
 
 ;; (add-to-list 'load-path "~/dotspacemacs/bookmark-plus/")
 ;; (require 'bookmark+)

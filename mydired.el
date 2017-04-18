@@ -1,4 +1,4 @@
-(load (concat dotspacemacs-directory "dired+.el"))
+(load (concat dotspacemacs-directory "external/" "dired+.el"))
 
 ;; http://oremacs.com/2015/01/13/dired-options/
 ;;http://pragmaticemacs.com/emacs/dired-human-readable-sizes-and-sort-by-size/
