@@ -10,8 +10,11 @@
 
 (add-to-list 'load-path (concat dotspacemacs-directory "external"))
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+(if (not (eq system-type 'windows-nt))
+    (progn
+      (require 'exec-path-from-shell)
+      (exec-path-from-shell-initialize)
+      ))
 
 (load (concat dotspacemacs-directory "external/" "runCurrentFile.el"))
 (load (concat dotspacemacs-directory "shell_abbrev"))

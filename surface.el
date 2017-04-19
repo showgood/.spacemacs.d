@@ -1,6 +1,9 @@
 (load (concat dotspacemacs-directory "common.el"))
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_surface"))
 
+(add-to-list 'load-path (concat dotspacemacs-directory "external/paperless"))
+(autoload 'paperless "paperless" "A major mode for filing PDFs" t)
+
 (require 'org-drill)
 
 (setq org-startup-indented t)
