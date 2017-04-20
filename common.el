@@ -56,6 +56,9 @@
 ;; https://www.masteringemacs.org/article/script-files-executable-automatically
 (add-hook 'after-save-hook   'executable-make-buffer-file-executable-if-script-p)
 
+;; http://sachachua.com/blog/2017/04/emacs-pasting-with-the-mouse-without-moving-the-point-mouse-yank-at-point/
+(setq mouse-yank-at-point t)
+
 ;; for proced
 (setq-default proced-auto-update-flag t)
 (setq-default proced-auto-update-interval 5)
