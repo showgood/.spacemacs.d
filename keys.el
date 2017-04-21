@@ -2,7 +2,6 @@
 (global-set-key (kbd "<f3>") 'org-clock-in)
 (global-set-key (kbd "<f4>") 'org-clock-out)
 
-
 ;; need to change since spacemacs 0.2 since ivy has taken f6
 ;; toggle between hpp and cpp
 ;; (global-set-key (kbd "<f7> a") 'projectile-find-other-file)
@@ -66,7 +65,6 @@
 (global-set-key (kbd "\C-c +") 'evil-numbers/inc-at-pt); mimic C-a in vim
 (global-set-key (kbd "\C-c -") 'evil-numbers/dec-at-pt); mimic C-x in vim
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
-(global-set-key (kbd "C-x o") 'ace-window)
 (global-set-key (kbd "\C-ca") 'org-agenda)
 (global-set-key (kbd "\C-cc") 'org-capture)
 (global-set-key (kbd "\C-co") 'evil-replace-word-selection)
@@ -74,16 +72,20 @@
 (global-set-key (kbd "\C-cr") 'org-refile)
 ;; (global-set-key (kbd "\C-cj") 'org-journal-new-entry)
 
-;; jump to the definition
-;; (global-set-key (kbd "<C-return>") 'helm-gtags-find-tag)
-
+(global-set-key (kbd "\C-xb") 'avy-pop-mark)
+(global-set-key (kbd "\C-xc") 'cp-filename-of-current-buffer)
+(global-set-key (kbd "\C-xf") 'counsel-git)
+(global-set-key (kbd "\C-xg") 'counsel-git-grep)
+(global-set-key (kbd "\C-xk") 'kill-this-buffer)
+(global-set-key (kbd "\C-xj") 'avy-goto-char-2)
+(global-set-key (kbd "\C-xm") 'magit-status)
+(global-set-key (kbd "\C-xo") 'ace-window)
+(global-set-key (kbd "\C-xp") 'spacemacs/copy-clipboard-to-whole-buffer)
+(global-set-key (kbd "\C-xs") 'avy-pop-mark)
+(global-set-key (kbd "\C-xw") 'avy-pop-mark)
+;; quickly select the content for a xml element for replace
+(global-set-key (kbd "\C-xt") 'web-mode-element-content-select)
 (global-set-key (kbd "\C-xy") 'spacemacs/show-and-copy-buffer-filename)
 (global-set-key (kbd "\C-xY") 'spacemacs/copy-whole-buffer-to-clipboard)
-(global-set-key (kbd "\C-xp") 'spacemacs/copy-clipboard-to-whole-buffer)
-(global-set-key (kbd "\C-xg") 'avy-goto-char-2)
-(global-set-key (kbd "\C-xc") 'cp-filename-of-current-buffer)
 
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
 
-;; quickly select the content for a xml element for replace
-(global-set-key (kbd "C-x t") 'web-mode-element-content-select)
