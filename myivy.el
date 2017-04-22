@@ -1,9 +1,10 @@
-(global-set-key (kbd "\C-ck") 'counsel-ag)
-(global-set-key (kbd "\C-cg") 'counsel-git)
-(global-set-key (kbd "\C-cj") 'counsel-git-grep)
 (global-set-key (kbd "\C-s") 'counsel-grep-or-swiper)
 
 (setq ivy-count-format "(%d/%d) ")
+
+;; http://oremacs.com/2017/04/09/ivy-0.9.0/
+(setq counsel-yank-pop-separator "\n-------------------------------------------------------\n")
+(setq counsel-bookmark-avoid-dired t)
 
 ;; {{ @see http://oremacs.com/2015/04/19/git-grep-ivy/
 ;; http://blog.binchen.org/posts/hello-ivy-mode-bye-helm.html
