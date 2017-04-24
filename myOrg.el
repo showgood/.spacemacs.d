@@ -1,6 +1,10 @@
 (setq org-startup-indented t)
 ;; (load "~/dotspacemacs/org-journal.el")
 
+;; always use relative path link, very important
+;; https://emacs.stackexchange.com/questions/16652/change-the-behavior-of-org-mode-auto-expand-relative-path-in-link
+(setq org-link-file-path-type 'relative)
+
 (setq org-src-fontify-natively t)
 (setq org-startup-with-inline-images t)
 (setq org-agenda-files (quote ("~/org/gtd/"
