@@ -108,5 +108,5 @@
 
 (require 'org-drill)
 (setq org-drill-learn-fraction 0.3)
-(setq org-drill-spaced-repetition-algorithm 'Simple8)
+;; (setq org-drill-spaced-repetition-algorithm 'Simple8)
 ;; https://punchagan.muse-amuse.in/posts/org-drill-for-making-it-stick.html
