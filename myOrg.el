@@ -110,3 +110,20 @@
 (setq org-drill-learn-fraction 0.3)
 ;; (setq org-drill-spaced-repetition-algorithm 'Simple8)
 ;; https://punchagan.muse-amuse.in/posts/org-drill-for-making-it-stick.html
+
+;; https://emacs.stackexchange.com/questions/5889/how-to-highlight-text-permanently-in-org-mode
+;; for me, font is not bold, also now * char is visible.. not sure why
+(add-to-list 'org-emphasis-alist
+             '("*" (:emphasis t :foreground "red")
+               ))
+
+;; not working, not sure why
+;; http://sachachua.com/blog/2012/12/emacs-strike-through-headlines-for-done-tasks-in-org/
+;; (setq org-fontify-done-headline t)
+;; (custom-set-faces
+;;  '(org-done ((t (:foreground "PaleGreen"
+;;                              :weight normal
+;;                              :strike-through t))))
+;;  '(org-headline-done
+;;    ((((class color) (min-colors 16) (background dark))
+;;      (:foreground "LightSalmon" :strike-through t)))))
