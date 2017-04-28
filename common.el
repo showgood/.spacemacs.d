@@ -33,6 +33,7 @@
 (load (concat dotspacemacs-directory "myFindFile.el"))
 (load (concat dotspacemacs-directory "myShell.el"))
 (load (concat dotspacemacs-directory "myEshell.el"))
+(load (concat dotspacemacs-directory "myXml.el"))
 
 ;; put this at last
 (load (concat dotspacemacs-directory "functions"))
@@ -75,7 +76,3 @@
 ;; (require 'golden-ratio)
 ;; (golden-ratio-mode 1)
 ;; (setq golden-ratio-auto-scale t)
-
-;; use web-mode instead of nxml for xml
-(add-to-list 'auto-mode-alist '("\\.xml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.xsd\\'" . web-mode))

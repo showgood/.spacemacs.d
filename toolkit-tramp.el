@@ -26,6 +26,3 @@
 (add-to-list 'tramp-remote-path "/opt/bb/bin")
 
 (provide 'toolkit-tramp)
-
-;; (setenv "PATH" (concat (getenv "PATH") ";C:/Cygwin/bin"))
-;; (setq exec-path (append exec-path '("C:/Cygwin//bin")))

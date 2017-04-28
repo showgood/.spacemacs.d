@@ -238,3 +238,9 @@ Version 2015-06-12"
    ;; name of the error buffer
    "*Bas code gen Error Buffer*"
 ))
+
+;; https://superuser.com/questions/546619/clear-the-kill-ring-in-emacs
+(defun clear-kill-ring ()
+  (interactive)
+  (progn (setq kill-ring nil) (garbage-collect))
+  )
