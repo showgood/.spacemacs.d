@@ -55,7 +55,6 @@ values."
      ;; better-defaults
      emacs-lisp
      git
-     ;; markdown
      org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -63,6 +62,8 @@ values."
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
+     github
+     python
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these

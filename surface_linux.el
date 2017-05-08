@@ -17,7 +17,7 @@
 ;; (load (concat dotspacemacs-directory "myPdf.el"))
 ;; (load (concat dotspacemacs-directory "myScheme.el"))
 (autoload 'paperless "paperless" "A major mode for filing PDFs" t)
-(add-to-list 'load-path "~/.spacemacs.d/paperless")
+(add-to-list 'load-path "~/.spacemacs.d/external/paperless")
 (setq paperless-capture-directory "/media/sf_showg/Documents/scan")
 (setq paperless-root-directory "/media/sf_showg/Documents/docs")
 
