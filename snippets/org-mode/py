@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: insert python source code
+# key: py
+# --
+#+BEGIN_SRC python
+$0
+#+END_SRC

@@ -1,3 +1,4 @@
+(setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
 (setq org-startup-indented t)
 ;; (load "~/dotspacemacs/org-journal.el")
 
@@ -31,6 +32,7 @@
     (C . t)
     (js . t)
     (emacs-lisp . t)
+    (scheme . t)
     ))
 
 (setq org-capture-templates

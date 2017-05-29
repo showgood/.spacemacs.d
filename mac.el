@@ -1,5 +1,7 @@
 (load (concat dotspacemacs-directory "common.el"))
 
+(load (concat dotspacemacs-directory "myOrg.el"))
+
 (set-face-attribute 'default nil :font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 (set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil t)
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_mac"))
@@ -24,3 +26,4 @@
 
 (setq paperless-capture-directory "/Users/showgood/Documents/scan")
 (setq paperless-root-directory "/Users/showgood/Documents/docs")
+(load (concat dotspacemacs-directory "coding_publish.el"))
