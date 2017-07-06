@@ -1,3 +1,4 @@
+(setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
 (setq org-startup-indented t)
 ;; (load "~/dotspacemacs/org-journal.el")
 
@@ -31,6 +32,7 @@
     (C . t)
     (js . t)
     (emacs-lisp . t)
+    (scheme . t)
     ))
 
 (setq org-capture-templates
@@ -106,8 +108,8 @@
 (setq org-export-with-properties t)
 (setq org-export-with-clocks t)
 
-(require 'org-drill)
-(setq org-drill-learn-fraction 0.3)
+;(require 'org-drill)
+;(setq org-drill-learn-fraction 0.3)
 ;; (setq org-drill-spaced-repetition-algorithm 'Simple8)
 ;; https://punchagan.muse-amuse.in/posts/org-drill-for-making-it-stick.html
 

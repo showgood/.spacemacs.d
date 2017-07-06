@@ -6,6 +6,6 @@
 :level: :${1:easy}:
 :company: 
 :status: :not_started:
-:url: 
+:url:    ${2}
 :tag:
 :end:
