@@ -91,3 +91,5 @@
 ;; need these bindings since in org mode C-c + is binded to something else
 (global-set-key (kbd "\C-x=") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "\C-x-") 'evil-numbers/dec-at-pt)
+
+(global-set-key (kbd "\C-cb") 'counsel-bookmark)

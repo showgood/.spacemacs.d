@@ -76,3 +76,8 @@
 ;; (require 'golden-ratio)
 ;; (golden-ratio-mode 1)
 ;; (setq golden-ratio-auto-scale t)
+
+
+;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Password-handling.html
+;; store the password for a period of time, helpful in the TRAMP case
+(setq password-cache-expiry nil)
