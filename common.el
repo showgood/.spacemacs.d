@@ -34,6 +34,7 @@
 (load (concat dotspacemacs-directory "myShell.el"))
 (load (concat dotspacemacs-directory "myEshell.el"))
 (load (concat dotspacemacs-directory "myXml.el"))
+(load (concat dotspacemacs-directory "external/" "find-file-in-project.el"))
 
 ;; put this at last
 (load (concat dotspacemacs-directory "functions"))

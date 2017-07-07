@@ -93,3 +93,6 @@
 (global-set-key (kbd "\C-x-") 'evil-numbers/dec-at-pt)
 
 (global-set-key (kbd "\C-cb") 'counsel-bookmark)
+
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
