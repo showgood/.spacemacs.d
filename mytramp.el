@@ -19,3 +19,13 @@
 
 ;; http://emacs.stackexchange.com/questions/17543/tramp-mode-is-much-slower-than-using-terminal-to-ssh
 (setq projectile-mode-line "Projectile")
+
+(require 'tramp)
+(set-default 'tramp-auto-save-directory "~/tmp")
+;; support large file size
+(setq tramp-inline-compress-start-size 10000000)
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+
+;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Password-handling.html
+;; store the password for a period of time, helpful in the TRAMP case
+(setq password-cache-expiry nil)

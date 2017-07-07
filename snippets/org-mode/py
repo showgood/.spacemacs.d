@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: insert python source code
-# key: py
+# key: pys
 # --
 #+BEGIN_SRC python
 $0
