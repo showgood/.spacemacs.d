@@ -29,3 +29,8 @@
 ;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Password-handling.html
 ;; store the password for a period of time, helpful in the TRAMP case
 (setq password-cache-expiry nil)
+
+;;http://carloerodriguez.com/blog/2015/12/14/effective-ssh-connections-with-emacs/
+;; make tramp work with projectile
+(defadvice projectile-project-root (around ignore-remote first activate)
+  (unless (file-remote-p default-directory) ad-do-it))

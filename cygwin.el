@@ -10,3 +10,8 @@
 (load (concat dotspacemacs-directory "myOrg.el"))
 
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_cygwin"))
+
+;;http://carloerodriguez.com/blog/2015/12/14/effective-ssh-connections-with-emacs/
+;; make tramp work with projectile
+(defadvice projectile-project-root (around ignore-remote first activate)
+  (unless (file-remote-p default-directory) ad-do-it))
