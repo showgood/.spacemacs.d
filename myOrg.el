@@ -1,3 +1,13 @@
+;; export to Markdown
+(require 'ox-md)
+
+;; export to github flavor markdown
+(require 'ox-gfm)
+
+;;; Show org-mode bullets as UTF-8 characters.
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 (setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
 (setq org-startup-indented t)
 ;; (load "~/dotspacemacs/org-journal.el")
@@ -60,7 +70,7 @@
 
 (setq org-refile-targets (quote ((nil :maxlevel . 9)
                                  (org-agenda-files :maxlevel . 9))))
-
+(setq org-refile-use-outline-path 'file)
 
 ;; http://dept.stat.lsa.umich.edu/~jerrick/org_agenda_calendar.html
 ;; (add-hook 'org-finalize-agenda-hook
@@ -129,3 +139,6 @@
 ;;  '(org-headline-done
 ;;    ((((class color) (min-colors 16) (background dark))
 ;;      (:foreground "LightSalmon" :strike-through t)))))
+
+;;; Preserve indentation in code blocks
+(setq org-src-preserve-indentation t)

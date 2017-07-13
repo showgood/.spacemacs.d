@@ -19,3 +19,18 @@
 ;; make tramp work with projectile
 (defadvice projectile-project-root (around ignore-remote first activate)
   (unless (file-remote-p default-directory) ad-do-it))
+
+(defun nylx ()
+  (interactive)
+  (let ((default-directory "/toolkit:xwu157@nylxdev6:/home/xwu157/big"))
+    (shell)))
+
+(defun trsl ()
+  (interactive)
+  (let ((default-directory "/toolkit:xwu157@trslnjdtraap01:/home/xwu157"))
+    (shell)))
+
+(defun njts ()
+  (interactive)
+  (let ((default-directory "/toolkit:xwu157@njtsdev1:/home/xwu157/big"))
+    (shell)))
