@@ -1,6 +1,5 @@
 ;; I need this because need to work with svn report over TRAMP.
 ;; counsel-git only work with git. and projectile takes ages to index the project.
-;; (load (concat dotspacemacs-directory "find-file-in-project.el"))
 
 (autoload 'find-file-in-project "find-file-in-project" nil t)
 (autoload 'find-file-in-project-by-selected "find-file-in-project" nil t)

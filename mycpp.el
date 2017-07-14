@@ -16,3 +16,8 @@
 
 ;; Install hook to use clang-format on save
 ;; (add-hook 'before-save-hook 'clang-format-before-save)
+
+(dolist (m '(c-mode c++-mode))
+  (font-lock-add-keywords
+   m
+   '(("\\<\\(int8_t\\|int16_t\\|int32_t\\|int64_t\\|uint8_t\\|uint16_t\\|uint32_t\\|uint64_t\\)\\>" . font-lock-keyword-face))))

@@ -34,7 +34,8 @@
 (load (concat dotspacemacs-directory "myShell.el"))
 (load (concat dotspacemacs-directory "myEshell.el"))
 (load (concat dotspacemacs-directory "myXml.el"))
-(load (concat dotspacemacs-directory "external/" "find-file-in-project.el"))
+(require 'find-file-in-project)
+(require 'focus)
 
 ;; put this at last
 (load (concat dotspacemacs-directory "functions"))
@@ -80,3 +81,21 @@
 
 ;; stop inserting \ for not paired quote
 (setq sp-autoescape-string-quote "off")
+
+(global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+(setq revert-without-query '(".*")) ;; disable revert query
+
+(defun font-lock-comment-annotations ()
+  "Highlight a bunch of well known comment annotations.
+This functions should be added to the hooks of major modes for programming."
+  (font-lock-add-keywords
+   nil
+   '(("\\<\\(FIX\\(ME\\)?\\|BUG\\|HACK\\):" 1 font-lock-warning-face t)
+     ("\\<\\(NOTE\\):" 1 'org-level-2 t)
+     ("\\<\\(TODO\\):" 1 'org-todo t)
+     ("\\<\\(DONE\\):" 1 'org-done t))
+   ))
+
+(add-hook 'prog-mode-hook 'font-lock-comment-annotations)

@@ -8,6 +8,37 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+(setq org-todo-keywords '((sequence "☛ TODO(t)" "|" "✔ DONE(d)")
+                          (sequence "⚑ WAITING(w)" "|")
+                          (sequence "|" "✘ CANCELED(c)")))
+
+(setq org-link-abbrev-alist
+      '(("google" . "http://www.google.com/search?q=")
+        ("google-map" . "http://maps.google.com/maps?q=%s")
+        ))
+
+;; make agenda show on current window
+(setq org-agenda-window-setup 'current-window)
+;; highlight current in agenda
+(add-hook 'org-agenda-mode-hook 'hl-line-mode)
+;; Setup files for agenda
+;; (setq org-agenda-files (list "~/Org/task/Office.org" "~/Org/task/Personal.org"))
+;;
+;; (setq org-directory "~/Org")
+;; (setq org-default-notes-file (f-join org-directory "task" "Office.org"))
+
+;; Always use `C-g' to exit agenda
+;; (add-hook 'org-agenda-mode-hook
+;;           '(lambda ()
+;;              (local-set-key (kbd "C-g") 'org-agenda-exit)))
+
+;; Use current window when switch to source block
+(setq org-src-window-setup 'current-window)
+;; Disable prompting to evaluate babel blocks
+(setq org-confirm-babel-evaluate nil)
+;; Disable add validation link when export to HTML
+(setq org-html-validation-link nil)
+
 (setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
 (setq org-startup-indented t)
 ;; (load "~/dotspacemacs/org-journal.el")
