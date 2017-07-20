@@ -99,3 +99,5 @@ This functions should be added to the hooks of major modes for programming."
    ))
 
 (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
+
+(spacemacs/set-leader-keys "al" 'ace-link)
