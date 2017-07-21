@@ -34,6 +34,7 @@
 (load (concat dotspacemacs-directory "myShell.el"))
 (load (concat dotspacemacs-directory "myEshell.el"))
 (load (concat dotspacemacs-directory "myXml.el"))
+
 (require 'find-file-in-project)
 (require 'focus)
 
@@ -51,9 +52,6 @@
 ;; (require 'keyfreq)
 ;; (keyfreq-mode 1)
 ;; (keyfreq-autosave-mode 1)
-
-;; (add-to-list 'load-path "~/dotspacemacs/bookmark-plus/")
-;; (require 'bookmark+)
 
 ;; Make script files executable automatically
 ;; https://www.masteringemacs.org/article/script-files-executable-automatically
@@ -101,3 +99,20 @@ This functions should be added to the hooks of major modes for programming."
 (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
 
 (spacemacs/set-leader-keys "al" 'ace-link)
+
+(add-to-list 'load-path (concat dotspacemacs-directory "external/bookmark-plus"))
+(require 'bookmark+)
+
+(spacemacs/set-leader-keys "om" 'bookmark-set)
+(spacemacs/set-leader-keys "ol" 'bookmark-bmenu-list)
+(spacemacs/set-leader-keys "ou" 'bmkp-url-target-set)
+(spacemacs/set-leader-keys "ow" 'bmkp-url-jump)
+(spacemacs/set-leader-keys "of" 'bmkp-non-dir-file-jump)
+(spacemacs/set-leader-keys "od" 'bmkp-dired-jump)
+(spacemacs/set-leader-keys "or" 'bmkp-region-jump)
+(spacemacs/set-leader-keys "os" 'bmkp-set-snippet-bookmark)
+(spacemacs/set-leader-keys "oa" 'bmkp-annotate-bookmark)
+(spacemacs/set-leader-keys "ok" 'bmkp-snippet-to-kill-ring)
+
+;; fix the error that bmkp-info-cp is void
+(defalias 'bmkp-info-cp 'bmkp-info-node-name-cp)
