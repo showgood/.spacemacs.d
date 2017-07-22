@@ -118,3 +118,9 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; fix the error that bmkp-info-cp is void
 (defalias 'bmkp-info-cp 'bmkp-info-node-name-cp)
+
+(spacemacs/set-leader-keys "hv" 'counsel-describe-variable)
+(spacemacs/set-leader-keys "hk" 'describe-key)
+(spacemacs/set-leader-keys "hm" 'describe-mode)
+(spacemacs/set-leader-keys "hf" 'counsel-describe-function)
+(spacemacs/set-leader-keys "hi" 'info)
