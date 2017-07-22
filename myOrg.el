@@ -21,17 +21,6 @@
 (setq org-agenda-window-setup 'current-window)
 ;; highlight current in agenda
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
-;; Setup files for agenda
-;; (setq org-agenda-files (list "~/Org/task/Office.org" "~/Org/task/Personal.org"))
-;;
-;; (setq org-directory "~/Org")
-;; (setq org-default-notes-file (f-join org-directory "task" "Office.org"))
-
-;; Always use `C-g' to exit agenda
-;; (add-hook 'org-agenda-mode-hook
-;;           '(lambda ()
-;;              (local-set-key (kbd "C-g") 'org-agenda-exit)))
-
 ;; Use current window when switch to source block
 (setq org-src-window-setup 'current-window)
 ;; Disable prompting to evaluate babel blocks
@@ -49,6 +38,13 @@
 
 (setq org-src-fontify-natively t)
 (setq org-startup-with-inline-images t)
+
+;; Setup files for agenda
+;; Always use `C-g' to exit agenda
+;; (add-hook 'org-agenda-mode-hook
+;;           '(lambda ()
+;;              (local-set-key (kbd "C-g") 'org-agenda-exit)))
+
 (setq org-agenda-files (quote ("~/org/gtd/"
                                "~/org/Inbox.org"
                                "~/org/habit.org"
@@ -85,8 +81,11 @@
                "* %? :NOTE:\n:PROPERTIES:\n:CREATED: %U\n:END:\n%a\n")
               ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
                "* %?\n%U\n")
-              ("w" "org-protocol" entry (file "~/org/Inbox.org")
-               "* TODO Review %c\n%U\n" :immediate-finish t)
+              ;; ("w" "org-protocol" entry (file "~/org/Inbox.org")
+              ;;  "* TODO Review %c\n%U\n" :immediate-finish t)
+              ("w" "Web site" entry
+               (file "")
+               "* %a :website:\n\n%U %?\n\n%:initial")
               ("m" "Meeting" entry (file "~/org/Inbox.org")
                "* MEETING with %? :MEETING:\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
               ("a" "Appointment" entry (file "~/org/Inbox.org")
@@ -136,7 +135,6 @@
 (setq org-contacts-files (quote ("~/org/contacts.org")))
 
 (setq org-confirm-babel-evaluate nil)
-;; (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
 
 ;http://orgmode.org/manual/Code-evaluation-security.html
 (defun my-org-confirm-babel-evaluate (lang body)
@@ -155,7 +153,6 @@
 ;; https://punchagan.muse-amuse.in/posts/org-drill-for-making-it-stick.html
 
 ;; https://emacs.stackexchange.com/questions/5889/how-to-highlight-text-permanently-in-org-mode
-;; for me, font is not bold, also now * char is visible.. not sure why
 (add-to-list 'org-emphasis-alist
              '("*" (:emphasis t :foreground "red")
                ))
@@ -173,3 +170,12 @@
 
 ;;; Preserve indentation in code blocks
 (setq org-src-preserve-indentation t)
+
+;; https://github.com/alphapapa/org-protocol-capture-html
+;; only works on Mac
+(if (eq system-type 'darwin)
+    (progn
+      (require 'org-protocol)
+      (add-to-list 'load-path (concat dotspacemacs-directory "external/org-protocol-capture-html"))
+      (require 'org-protocol-capture-html)
+      ))

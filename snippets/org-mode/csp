@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: insert coding signature for python
+# key: csp
+# --
+* coding signature python
+#+BEGIN_SRC python
+$0
+#+END_SRC

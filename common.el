@@ -36,6 +36,9 @@
 (load (concat dotspacemacs-directory "myXml.el"))
 
 (require 'find-file-in-project)
+
+;; do NOT ignore pdf files for searching
+(setq ffip-prune-patterns (delete "*.pdf" ffip-prune-patterns))
 (require 'focus)
 
 ;; put this at last
@@ -44,7 +47,6 @@
 ;; disable company mode in shell
 ;; (add-hook 'shell-mode-hook (lambda () (company-mode -1)) 'append)
 
-;; (load (concat dotspacemacs-directory "myOrg.el"))
 ;; (load (concat dotspacemacs-directory "visual-regexp/visual-regexp.el"))
 ;; (load (concat dotspacemacs-directory "visual-regexp-steroids/visual-regexp-steroids.el"))
 
@@ -109,7 +111,7 @@ This functions should be added to the hooks of major modes for programming."
 (spacemacs/set-leader-keys "ow" 'bmkp-url-jump)
 (spacemacs/set-leader-keys "of" 'bmkp-non-dir-file-jump)
 (spacemacs/set-leader-keys "od" 'bmkp-dired-jump)
-(spacemacs/set-leader-keys "or" 'bmkp-region-jump)
+(spacemacs/set-leader-keys "or" 'bmkp-remote-file-jump)
 (spacemacs/set-leader-keys "os" 'bmkp-set-snippet-bookmark)
 (spacemacs/set-leader-keys "oa" 'bmkp-annotate-bookmark)
 (spacemacs/set-leader-keys "ok" 'bmkp-snippet-to-kill-ring)
