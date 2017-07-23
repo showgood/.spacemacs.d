@@ -127,3 +127,6 @@
 ;; (setcar (nthcdr 1 org-emphasis-regexp-components) "- \t.,: !?;'\")}\\")
 ;; (setq org-export-with-properties t)
 ;; (setq org-export-with-clocks t)
+
+;; (add-to-list 'load-path (concat dotspacemacs-directory "external/color-theme-sanityinc-tomorrow"))
+;; (require 'color-theme-sanityinc-tomorrow)
