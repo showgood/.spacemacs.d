@@ -1,9 +1,11 @@
-(load (concat dotspacemacs-directory "common.el"))
+;; NOTE: this needs to go before loading anything
+(setq bookmark-default-file "~/mySetup/emacs/bookmarks")
 
+(load (concat dotspacemacs-directory "common.el"))
 (load (concat dotspacemacs-directory "myOrg.el"))
 
-(set-face-attribute 'default nil :font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
-(set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil t)
+;; (set-face-attribute 'default nil :font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+;; (set-frame-font "-*-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1" nil t)
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_mac"))
 
 (load (concat dotspacemacs-directory "tramp.mac.el"))
@@ -26,4 +28,5 @@
 
 (setq paperless-capture-directory "/Users/showgood/Documents/scan")
 (setq paperless-root-directory "/Users/showgood/Documents/docs")
-(load (concat dotspacemacs-directory "coding_publish.el"))
+;; (load (concat dotspacemacs-directory "coding_publish.el"))
+(load "~/mySetup/emacs/coding_publish.el")

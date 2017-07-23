@@ -124,3 +124,21 @@ This functions should be added to the hooks of major modes for programming."
 (spacemacs/set-leader-keys "hm" 'describe-mode)
 (spacemacs/set-leader-keys "hf" 'counsel-describe-function)
 (spacemacs/set-leader-keys "hi" 'info)
+
+;; https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+(setq display-time-world-list
+        '(("America/New_York" "New York")
+          ("Asia/Shanghai" "Shanghai")
+          ("Australia/Sydney" "Sydney")
+          ("Europe/London" "London")
+          ("Europe/Berlin" "Germany")
+          ("Europe/Rome" "Italy")
+          ("Europe/Paris" "Paris")))
+
+;; quick way to dispaly world time clock
+(defalias 'wc 'display-time-world)
+
+(defalias 'lml 'list-matching-lines)
+(defalias 'dml 'delete-matching-lines)
+(defalias 'dnml 'delete-non-matching-lines)
+(defalias 'dtw 'delete-trailing-whitespace)
