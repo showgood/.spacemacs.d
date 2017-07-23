@@ -2,7 +2,9 @@ alias gp git push
 alias gst git status $1
 alias gcmsg git commit -m $1
 alias ga git add $1
+alias gco git checkout --
+alias grv git remote -v
+alias gsu git status -uno
 alias ff find-file $1
 alias d 'dired $1'
-alias clean plink -d source -a sundev1 $1
-alias build plink -a sundev1 $1
+alias ll ls -lha
