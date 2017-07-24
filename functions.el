@@ -21,19 +21,19 @@
             (mapcar (lambda (n) (string-to-number n))
                     (cua--extract-rectangle))))))
 
-; replace current word or selection using vim style for evil mode
-; author: showgood
-;; (defun evil-replace-word-selection()
-;;   "replace current word or selection using vim style for evil mode"
-;;   (interactive)
-;;   (if (use-region-p)
-;;       (let (
-;;             (selection (buffer-substring-no-properties (region-beginning) (region-end))))
-;;         (if (= (length selection) 0)
-;;           (message "empty string")
-;;           (evil-ex (concat "'<,'>s/" selection "/"))
-;;         ))
-;;     (evil-ex (concat "%s/" (thing-at-point 'word) "/"))))
+;; replace current word or selection using vim style for evil mode
+;; author: showgood
+(defun evil-replace-word-selection()
+  "replace current word or selection using vim style for evil mode"
+  (interactive)
+  (if (use-region-p)
+      (let (
+            (selection (buffer-substring-no-properties (region-beginning) (region-end))))
+        (if (= (length selection) 0)
+          (message "empty string")
+          (evil-ex (concat "'<,'>s/" selection "/"))
+        ))
+    (evil-ex (concat "%s/" (thing-at-point 'word) "/"))))
 
 (defun Open ()
   "Show current file in desktop (OS's file manager).
@@ -59,18 +59,7 @@ Version 2015-06-12"
 (defun ddate ()
   (interactive)
   (insert (format-time-string "%Y-%b-%d")))
-;; (require 'ido) ; part of emacs
 
-;; (load (concat dotspacemacs-directory "hot-filelist"))
-
-;; (defun xah-open-file-fast ()
-;;   "Prompt to open a file from `hot-filelist'.
-;; URL `http://ergoemacs.org/emacs/emacs_hotkey_open_file_fast.html'
-;; Version 2015-04-23"
-;;   (interactive)
-;;   (let ((ξabbrevCode
-;;          (ido-completing-read "Open:" (mapcar (lambda (ξx) (car ξx)) hot-filelist))))
-;;     (find-file (cdr (assoc ξabbrevCode hot-filelist)))))
 
 (defun close-all-buffers ()
   (interactive)
@@ -85,16 +74,6 @@ Version 2015-06-12"
 
 ;; (add-hook 'org-open-link-functions 'org-pass-link-to-system)
 
-(defun open-my-inbox()
-  (interactive)
-  (find-file "~/org/Inbox.org")
-  )
-
-(defun open-my-todo-list()
-  (interactive)
-  (find-file "~/org/gtd/todo.org")
-  )
-
 ;;soure:https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-clipboard.el
 ;; only copy file name (not including path)
 (defun cp-filename-of-current-buffer ()
@@ -106,17 +85,18 @@ Version 2015-06-12"
       (kill-new filename)
       (message "filename %s => clipboard & yank ring" filename))))
 
-;; copy whole line
+;; quickly dupliate a line without changing the kill-ring
 ;; http://stackoverflow.com/questions/88399/how-do-i-duplicate-a-whole-line-in-emacs
-;; (defun duplicate-line()
-;;   (interactive)
-;;   (move-beginning-of-line 1)
-;;   (kill-line)
-;;   (yank)
-;;   (open-line 1)
-;;   (next-line 1)
-;;   (yank)
-;; )
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+  (pop kill-ring)
+)
 
 ;; (defun my-join-line()
 ;;   (interactive)
@@ -154,15 +134,6 @@ Version 2015-06-12"
 ;;   )
 ;;   )
 
-;; #+BEGIN_SRC elisp
-
-  ;; (if (string= "e")
-  ;;     (message "example"))
-  ;; (kill-new
-  ;;  (concat "#+start\n"
-  ;;          (substring-no-properties (current-kill 0)) "\n #+end\n"))
-  ;; )
-
 (defun A()
   "open the corresponding header/cpp file, like A plugin in vim"
   (interactive)
@@ -189,14 +160,6 @@ Version 2015-06-12"
    ;; name of the error buffer
    "*XMl reformat Error Buffer*"
    ))
-
-(defun dup()
-   "duplicate current line without chaning kill ring"
-   (interactive)
-   (evil-yank-line)
-   (evil-paste-after)
-   (setq kill-ring (cdr kill-ring))
-)
 
 (defun read-lines (filePath)
   "Return a list of lines of a file at filePath."
