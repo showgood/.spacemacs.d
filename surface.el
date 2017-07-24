@@ -1,3 +1,4 @@
+
 (load (concat dotspacemacs-directory "common.el"))
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_surface"))
 
@@ -130,3 +131,4 @@
 
 ;; (add-to-list 'load-path (concat dotspacemacs-directory "external/color-theme-sanityinc-tomorrow"))
 ;; (require 'color-theme-sanityinc-tomorrow)
+

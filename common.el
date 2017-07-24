@@ -35,6 +35,11 @@
 (load (concat dotspacemacs-directory "myEshell.el"))
 (load (concat dotspacemacs-directory "myXml.el"))
 
+;; NOTE: need to install Msys2 because ffip needs find executable
+;; http://www.msys2.org/
+;; (if (eq system-type 'windows-nt)
+    ;; (setq ffip-find-executable "c:\\\\soft\\\\msys64\\\\usr\\\\bin\\\\find"))
+
 (require 'find-file-in-project)
 
 ;; do NOT ignore pdf files for searching
@@ -137,8 +142,3 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; quick way to dispaly world time clock
 (defalias 'wc 'display-time-world)
-
-(defalias 'lml 'list-matching-lines)
-(defalias 'dml 'delete-matching-lines)
-(defalias 'dnml 'delete-non-matching-lines)
-(defalias 'dtw 'delete-trailing-whitespace)
