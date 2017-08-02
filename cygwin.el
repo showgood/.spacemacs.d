@@ -34,3 +34,9 @@
   (interactive)
   (let ((default-directory "/toolkit:xwu157@njtsdev1:/home/xwu157/big"))
     (shell)))
+
+(load (concat dotspacemacs-directory "org-bbg.el"))
+;; (require 'org-bbg)
+(require 'w32-browser)
+
+(setq org-file-apps org-file-apps-defaults-windowsnt)

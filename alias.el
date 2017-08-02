@@ -12,10 +12,3 @@
 (defalias 'here 'Open)
 (defalias 'rof 'recentf-open-files)
 (defalias 'rc 'xah-run-current-file)
-(defalias 'Calc 'helm-calcul-expression)
-(defalias 'Marks 'helm-all-mark-rings) ; can't use marks , taken by evil-mode
-(defalias 'Grep 'helm-occur) ; interactive grep in current buffer
-(defalias 'inbox 'open-my-inbox)
-(defalias 'todo 'open-my-todo-list)
-(defalias 'keys 'my-key-binds)
-(defalias 'note 'open-notes-dir)

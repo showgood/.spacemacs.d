@@ -3,7 +3,7 @@
 (setq dotspacemacs-enable-lazy-installation nil)
 
 (setq tab-width 4)
-(semantic-mode 1) ;; -> this is optional for Lisp
+;; (semantic-mode 1) ;; -> this is optional for Lisp
 
 (global-linum-mode t)
 (global-company-mode t)
@@ -142,3 +142,12 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; quick way to dispaly world time clock
 (defalias 'wc 'display-time-world)
+
+;; these two functions are used too frequently,
+;; so define them to reduce keystrokes
+(spacemacs/set-leader-keys "m" 'evil-avy-goto-char-2)
+(spacemacs/set-leader-keys "d" 'counsel-git-grep)
+(spacemacs/set-leader-keys "q" 'ivy-switch-buffer)
+
+(spacemacs/set-leader-keys "jm" 'evil-show-marks)
+(spacemacs/set-leader-keys "jr" 'evil-show-registers)

@@ -2,7 +2,7 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++. 
-(semantic-mode 1) ;; -> this is optional for Lisp
+;; (semantic-mode 1) ;; -> this is optional for Lisp
 
 ;; (add-to-list 'load-path (concat dotspacemacs-directory "function-args"))
 
