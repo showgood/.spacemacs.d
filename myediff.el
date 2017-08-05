@@ -32,3 +32,22 @@
       (error "no more than 2 files should be marked"))))
 
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Commands-of-GUD.html
+
+;; https://emacs.stackexchange.com/questions/3494/how-to-count-all-of-the-windows-in-a-frame
+(defun unique-visible-buffers (&optional frame)
+  (delete-dups (mapcar #'window-buffer (window-list frame))))
+
+(defun count-unique-visible-buffers (&optional frame)
+  "Count how many buffers are currently being shown.  Defaults to
+selected frame."
+  (length (unique-visible-buffers)))
+
+;; author: showgood
+(defun quick-ediff-two-buffers()
+  "quickly ediff two unique visible buffers in current frame"
+  (interactive)
+  (if (not (equal (count-unique-visible-buffers) 2))
+      (message "should have two unique buffers for ediff.")
+      (let ((buffer1 (buffer-name (car (unique-visible-buffers))))
+           (buffer2 (buffer-name (car (last (unique-visible-buffers))))))
+           (ediff-buffers buffer1 buffer2))))
