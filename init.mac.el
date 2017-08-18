@@ -37,6 +37,9 @@ values."
      common-lisp
      shell
      prodigy
+     imenu-list
+     (elfeed :variables
+             rmh-elfeed-org-files (list "~/.spacemacs.d/rss.org"))
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -141,7 +144,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(sanityinc-tomorrow-bright
+                         monokai
                          gruvbox
                          molokai
                          zenburn
@@ -246,7 +250,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -330,6 +334,17 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bmkp-last-as-first-bookmark-file "~/mySetup/emacs/bookmarks")
+ '(comint-buffer-maximum-size 20000)
+ '(comint-completion-addsuffix t)
+ '(comint-get-old-input (lambda nil "") t)
+ '(comint-input-ignoredups t)
+ '(comint-input-ring-size 5000)
+ '(comint-move-point-for-output nil)
+ '(comint-prompt-read-only nil)
+ '(comint-scroll-show-maximum-output t)
+ '(comint-scroll-to-bottom-on-input t)
+ '(comint-scroll-to-bottom-on-output nil)
  '(compilation-message-face (quote default))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#3C3D37" t)
@@ -345,11 +360,13 @@ you should place your code here."
      ("#F309DF" . 85)
      ("#3C3D37" . 100))))
  '(magit-diff-use-overlays nil)
+ '(org-agenda-files (quote ("~/org/Inbox.org")))
  '(package-selected-packages
    (quote
-    (pdf-tools tablist yapfify winum pyvenv pytest pyenv-mode py-isort pip-requirements magit-gh-pulls live-py-mode hy-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht fuzzy cython-mode company-anaconda anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md powerline slime spinner org alert log4e gntp macrostep skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode hydra parent-mode helm helm-core haml-mode flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight f diminish projectile pkg-info epl counsel swiper ivy web-completion-data s dash-functional tern pos-tip company bind-map bind-key yasnippet packed dash async avy auto-complete popup package-build prodigy zenburn-theme xterm-color ws-butler window-numbering which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline smex smeargle slime-company slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters quelpa pug-mode popwin persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file neotree multi-term move-text monokai-theme molokai-theme magit-gitflow lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc ivy-hydra info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make gruvbox-theme google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump define-word counsel-projectile company-web company-tern company-statistics company-quickhelp common-lisp-snippets column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (imenu-list elfeed-web elfeed-org elfeed-goodies ace-jump-mode noflet elfeed color-theme-sanityinc-tomorrow pdf-tools tablist yapfify winum pyvenv pytest pyenv-mode py-isort pip-requirements magit-gh-pulls live-py-mode hy-mode github-search github-clone github-browse-file gist gh marshal logito pcache ht fuzzy cython-mode company-anaconda anaconda-mode pythonic mmm-mode markdown-toc markdown-mode gh-md powerline slime spinner org alert log4e gntp macrostep skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode hydra parent-mode helm helm-core haml-mode flx magit magit-popup git-commit with-editor smartparens iedit anzu evil goto-chg undo-tree highlight f diminish projectile pkg-info epl counsel swiper ivy web-completion-data s dash-functional tern pos-tip company bind-map bind-key yasnippet packed dash async avy auto-complete popup package-build prodigy zenburn-theme xterm-color ws-butler window-numbering which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline smex smeargle slime-company slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters quelpa pug-mode popwin persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file neotree multi-term move-text monokai-theme molokai-theme magit-gitflow lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc ivy-hydra info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make gruvbox-theme google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump define-word counsel-projectile company-web company-tern company-statistics company-quickhelp common-lisp-snippets column-enforce-mode coffee-mode clean-aindent-mode auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
+ '(protect-buffer-bury-p nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

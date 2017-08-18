@@ -30,7 +30,6 @@
 
 (setq org-html-table-default-attributes '(:border "2" :rules "all" :frame "border"))
 (setq org-startup-indented t)
-;; (load "~/dotspacemacs/org-journal.el")
 
 ;; always use relative path link, very important
 ;; https://emacs.stackexchange.com/questions/16652/change-the-behavior-of-org-mode-auto-expand-relative-path-in-link
@@ -50,7 +49,6 @@
                                "~/org/habit.org"
                                "~/org/birthday.org")))
 
-(setq org-journal-dir "~/org/journalOrg/")
 (setq org-directory "~/org")
 (setq org-default-notes-file "~/org/Inbox.org")
 (setq org-archive-location "~/org/logbook.org::* Archived")
@@ -94,6 +92,9 @@
                "* PHONE %? :PHONE:\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
               ("c" "Contacts" entry (file "~/org/contacts.org")
                 "* %(org-contacts-template-name) \n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\n:END:\n")
+              ("l" "Link" entry
+                 (file "~/org/rss.org")
+                 "* %a\n%U")
               ("h" "Habit" entry (file "~/org/Inbox.org")
                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
                                         ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
@@ -179,3 +180,32 @@
       (add-to-list 'load-path (concat dotspacemacs-directory "external/org-protocol-capture-html"))
       (require 'org-protocol-capture-html)
       ))
+
+
+;; ---------------------
+;; org capture in elfeed
+;; ---------------------
+;; http://dsdshcym.github.io/blog/2016/01/28/add-org-store-link-entry-for-elfeed/
+;; store the link to elfeed in org mode
+(defun private/org-elfeed-entry-store-link ()
+  (when elfeed-show-entry
+    (let* ((link (elfeed-entry-link elfeed-show-entry))
+           (title (elfeed-entry-title elfeed-show-entry)))
+      (org-store-link-props
+       :link link
+       :description title)
+      )))
+
+(add-hook 'org-store-link-functions
+          'private/org-elfeed-entry-store-link)
+
+;; archive all DONE tasks in one go
+;; https://stackoverflow.com/questions/6997387/how-to-archive-all-the-done-tasks-using-a-single-command
+;; change 'file to 'tree operates on current tree instead of whole file
+(defun org-archive-done-tasks ()
+  (interactive)
+  (org-map-entries
+   (lambda ()
+     (org-archive-subtree)
+     (setq org-map-continue-from (outline-previous-heading)))
+   "/DONE" 'file))

@@ -1,0 +1,17 @@
+* blog                                                               :elfeed:
+** emacs                                                             :emacs:
+*** http://blog.binchen.org/rss.xml                                 :emacs:
+*** http://planet.emacsen.org/atom.xml                              :emacs:
+
+*** https://blog.aaronbieber.com/feed.xml                           :emacs:
+** comic                                                             :comic:
+*** http://xkcd.com/rss.xml
+** software
+*** http://nullprogram.com/feed/                                 :software:
+*** http://coolshell.cn/feed                                     :software:
+*** http://steve-yegge.blogspot.com/atom.xml                     :software:
+*** http://thunk.org/tytso/blog/feed/                            :software:
+*** https://www.schneier.com/blog/atom.xml                       :software:
+*** http://feeds.feedburner.com/10xSoftwareDevelopment           :software:
+*** http://www.artima.com/weblogs/feeds/bloggers/beckel.rss      :software:
+*** https://herbsutter.com/feed/                                 :software:

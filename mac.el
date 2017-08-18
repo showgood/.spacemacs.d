@@ -30,3 +30,9 @@
 (setq paperless-root-directory "/Users/showgood/Documents/docs")
 ;; (load (concat dotspacemacs-directory "coding_publish.el"))
 (load "~/mySetup/emacs/coding_publish.el")
+
+;; http://pragmaticemacs.com/emacs/search-with-os-x-spotlight-from-emacs/
+(require 'spotlight)
+
+(require 'org-journal)
+(setq org-journal-dir "~/org/journal/")
