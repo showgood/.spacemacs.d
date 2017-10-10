@@ -9,6 +9,11 @@
 (load (concat dotspacemacs-directory "mytramp.el"))
 (load (concat dotspacemacs-directory "myOrg.el"))
 
+(setq org-agenda-files (quote ("/cygdrive/c/wxm/gtd")))
+(setq org-directory "/cygdrive/c/wxm/gtd")
+(setq org-default-notes-file "/cygdrive/c/wxm/gtd/Inbox.org")
+(setq org-archive-location "/cygdrive/c/wxm/gtd/logbook.org::* Archived")
+
 (setq eshell-directory-name (concat dotspacemacs-directory "eshell_cygwin"))
 
 ;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Password-handling.html
@@ -23,7 +28,7 @@
 (defun nylx ()
   (interactive)
   (let ((default-directory "/toolkit:xwu157@nylxdev6:/home/xwu157/big"))
-    (shell)))
+    (shell (get-buffer-create "nylx"))))
 
 (defun trsl ()
   (interactive)
@@ -40,3 +45,10 @@
 (require 'w32-browser)
 
 (setq org-file-apps org-file-apps-defaults-windowsnt)
+
+;; (setq rtags-socket-file "/toolkit:xwu157@nylxdev6:/home/xwu157/.rdm")
+(setq rtags-socket-file "/home/xwu157/.rdm")
+(setq rtags-tramp-enabled t)
+(add-to-list 'tramp-remote-path "/home/xwu157/tools")
+(setq rtags-path "/home/xwu157/tools")
+;; (add-to-list 'tramp-remote-path "/location/of/rtags/bin")

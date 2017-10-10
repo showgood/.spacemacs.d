@@ -53,6 +53,7 @@
 (global-set-key (kbd "<f9> d") 'duplicate-line)
 (global-set-key (kbd "<f9> e") 'eshell)
 
+(global-set-key (kbd "<f9> a") 'org-attach)
 ; list all the files in current folder (SPC-f-f)
 (global-set-key (kbd "<f9> f") 'counsel-find-file)
 (global-set-key (kbd "<f9> q") 'fill-paragraph)
@@ -98,3 +99,6 @@
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
 (define-key global-map (kbd "\C-cs") 'new-shell)
+
+(spacemacs/set-leader-keys
+  "fp" 'cp-fullpath-of-current-buffer)

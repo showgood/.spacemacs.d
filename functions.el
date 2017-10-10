@@ -4,6 +4,7 @@
     (erase-buffer)
     (eshell-send-input)))
 
+;; very useful
 (defun comint-clear-buffer ()
   (interactive)
   (let ((comint-buffer-maximum-size 0))
@@ -62,19 +63,28 @@ Version 2015-06-12"
   (interactive)
   (insert (format-time-string "%Y-%b-%d")))
 
-
 (defun close-all-buffers ()
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
-; support open link for evernote or outlook etc
-;; (defun org-pass-link-to-system (link)
-;;   (if (string-match "^[a-zA-Z0-9]+:" link)
-;;       (browse-url link)
-;;     nil)
-;;   )
+;; handle the tramp case
+;; author:me
+(defun get-local-file-name (file-name)
+  (interactive)
+  (if (file-remote-p default-directory)
+      (tramp-file-name-localname (tramp-dissect-file-name
+                                  (expand-file-name file-name)))
+    (expand-file-name file-name))
+  )
 
-;; (add-hook 'org-open-link-functions 'org-pass-link-to-system)
+(defun cp-fullpath-of-current-buffer ()
+  "Copy file name full path into the yank ring and OS clipboard"
+  (interactive)
+  (let (filename)
+    (when buffer-file-name
+      (setq filename (get-local-file-name buffer-file-name))
+      (kill-new filename)
+      (message "filename %s => clipboard & yank ring" filename))))
 
 ;;soure:https://github.com/redguardtoo/emacs.d/blob/master/lisp/init-clipboard.el
 ;; only copy file name (not including path)
@@ -83,6 +93,7 @@ Version 2015-06-12"
   (interactive)
   (let (filename)
     (when buffer-file-name
+      ;; (setq filename (file-name-nondirectory buffer-file-name))
       (setq filename (file-name-nondirectory buffer-file-name))
       (kill-new filename)
       (message "filename %s => clipboard & yank ring" filename))))
@@ -100,12 +111,12 @@ Version 2015-06-12"
   (pop kill-ring)
 )
 
-;; (defun my-join-line()
-;;   (interactive)
-;;   (move-beginning-of-line 1)
-;;   (next-line 1)
-;;   (delete-indentation)
-;; )
+(defun bbg-link(link-name)
+  (interactive "sEnter link name: ")
+  (insert (format "[[bbg: %s][%s]]"
+                  (substring-no-properties (current-kill 0))
+                  link-name))
+)
 
 ;; from AbcDef ==> Abc_Def
 (defun split-name (s)
@@ -115,26 +126,6 @@ Version 2015-06-12"
       (replace-regexp-in-string "\\([a-z]\\)\\([A-Z]\\)" "\\1 \\2" s)))
    "[^A-Za-z0-9]+"))
 (defun underscore-string (s) (mapconcat 'downcase   (split-name s) "_"))
-
-;; (defun put-in-src-block (type)
-;;   (yank)
-;;   (let
-;;       ((prefix "")
-;;        (postfix "")
-;;        (result ""))
-;;   (cond
-;;    ((string= type "e")
-;;     (setq prefix "#+BEGIN_EXAMPLE")
-;;     (setq posfix "#+END_EXAMPLE")
-;;    (setq result (concat prefix "\n" (substring-no-properties (current-kill 0)) postfx))
-;;    (message result))
-;;    ((string= type "s")
-;;     (setq prefix "#+BEGIN_SRC")
-;;     (setq postfix "#+END_SRC")
-;;    (t (message "wrong choice"))
-;;    )
-;;   )
-;;   )
 
 (defun A()
   "open the corresponding header/cpp file, like A plugin in vim"
@@ -148,20 +139,6 @@ Version 2015-06-12"
   (interactive)
   (ff-find-other-file)
 )
-
-(defun xml-reformat()
-  "reformat the xml file using xmllint"
-  (interactive)
-
-  (shell-command
-   (format "xmllint --format %s"
-           (shell-quote-argument (buffer-file-name)))
-
-   ;; name of output buffer
-   (current-buffer)
-   ;; name of the error buffer
-   "*XMl reformat Error Buffer*"
-   ))
 
 (defun read-lines (filePath)
   "Return a list of lines of a file at filePath."
@@ -200,7 +177,7 @@ Version 2015-06-12"
 
    ;; name of output buffer
    "*Bas code gen output Buffer*"
-   ;; name of the error buffer
+   ;; name of the error buffe;;
    "*Bas code gen Error Buffer*"
 ))
 
@@ -209,3 +186,63 @@ Version 2015-06-12"
   (interactive)
   (progn (setq kill-ring nil) (garbage-collect))
   )
+
+(defun run-command-anywhere (command infile)
+  (process-file-shell-command command infile
+                              (get-buffer-create "*run-cmd-anywhere*"))
+  (switch-to-buffer-other-window "*run-cmd-anywhere*")
+)
+
+(defun rhub-json-to-xml ()
+  (interactive)
+  (run-command-anywhere
+      (concat "bbpy /home/xwu157/tools/rhubmsg.py "
+              (file-name-nondirectory
+                 (get-local-file-name (buffer-file-name))))
+      nil)
+)
+
+;; works with tramp mode
+(defun tramp/bas-code-gen ()
+  "run bas_codegen on current buffer by extracting the command from file content"
+  (interactive)
+  (run-command-anywhere
+   (trim-right-bas-code-gen
+    (trim-left-bas-code-gen
+     (extract-bas-codegen-command
+      (read-lines (buffer-file-name))
+      )))
+   nil)
+)
+
+(defun highlite-breg ()
+  "Highlight BREG lines…"
+  (interactive)
+  (if (equal "cpp" (file-name-extension (buffer-file-name)))
+      (highlight-lines-matching-regexp ".*bbit_.*" 'hi-red-b)))
+
+(add-hook 'find-file-hook 'highlite-breg)
+
+(defun xml-reformat()
+  "reformat the xml file using xmllint"
+  (interactive)
+
+  (shell-command
+   (format "xmllint --format %s"
+           (shell-quote-argument (buffer-file-name)))
+
+   ;; name of output buffer
+   (current-buffer)
+   ;; name of the error buffer
+   "*XMl reformat Error Buffer*"
+   ))
+
+;; works with tramp mode
+(defun tramp/xml-reformat()
+  "reformat the xml file using xmllint"
+  (interactive)
+
+  (run-command-anywhere
+   (format "xmllint --format %s"
+           (file-name-nondirectory
+              (get-local-file-name (buffer-file-name)))) nil))
