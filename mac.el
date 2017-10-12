@@ -36,3 +36,13 @@
 
 (require 'org-journal)
 (setq org-journal-dir "~/org/journal/")
+
+;; (add-to-list 'load-path (concat dotspacemacs-directory "external/vc-msg"))
+;; (require 'vc-msg)
+(require 'epa-file)
+(epa-file-enable)
+
+;; for common-lisp dev environment
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")

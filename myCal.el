@@ -63,7 +63,7 @@ shows that it does not recognize Run Yue at all."
 ;; (require 'cal-china-x)
 (setq mark-holidays-in-calendar t)
 
-(setq other-holidays
+(setq holiday-other-holidays
       '((holiday-fixed 12 24 "picnic day")
         (holiday-fixed 12 28 "boxing day")
         (holiday-fixed 1 1 "元旦")

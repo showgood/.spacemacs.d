@@ -215,11 +215,20 @@ Version 2015-06-12"
    nil)
 )
 
+;; font for highlight BREG
+(defface hi-breg
+  '((t :foreground "red"
+       :weight bold
+       :height 1.5
+       ))
+  "Face for highlight BREG."
+  :group 'showgood-font)
+
 (defun highlite-breg ()
   "Highlight BREG lines…"
   (interactive)
   (if (equal "cpp" (file-name-extension (buffer-file-name)))
-      (highlight-lines-matching-regexp ".*bbit_.*" 'hi-red-b)))
+      (highlight-lines-matching-regexp ".*bbit_.*" 'hi-breg)))
 
 (add-hook 'find-file-hook 'highlite-breg)
 
