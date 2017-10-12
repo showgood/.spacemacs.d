@@ -111,11 +111,11 @@ Version 2015-06-12"
   (pop kill-ring)
 )
 
-(defun bbg-link(link-name)
-  (interactive "sEnter link name: ")
-  (insert (format "[[bbg: %s][%s]]"
-                  (substring-no-properties (current-kill 0))
-                  link-name))
+(defun get-kill-ring()
+  "get top of kill ring as plain text"
+  (interactive)
+
+  (substring-no-properties (current-kill 0))
 )
 
 ;; from AbcDef ==> Abc_Def
@@ -191,15 +191,6 @@ Version 2015-06-12"
   (process-file-shell-command command infile
                               (get-buffer-create "*run-cmd-anywhere*"))
   (switch-to-buffer-other-window "*run-cmd-anywhere*")
-)
-
-(defun rhub-json-to-xml ()
-  (interactive)
-  (run-command-anywhere
-      (concat "bbpy /home/xwu157/tools/rhubmsg.py "
-              (file-name-nondirectory
-                 (get-local-file-name (buffer-file-name))))
-      nil)
 )
 
 ;; works with tramp mode
